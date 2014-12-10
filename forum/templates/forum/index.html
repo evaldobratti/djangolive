@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% for topico in topicos %}
+
+<h1><a href="{% url 'forum:topico' topico.id %}">{{ topico.titulo }}</a></h1>
+{{topico.descricao}}
+<br />
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2> {{topico.titulo}} </h2>
+<h1> {{topico.descricao}} </h1>
+<h1> {{topico.conteudo}} </h1>
+<br />
+{% for post in topico.post_set.all %}
+<h1> {{post.conteudo}} </h1>
+<br />
+{% endfor %}
+
+<form action="{% url 'forum:comentar' topico.id %}" method="post">
+{% csrf_token %}
+    <input type="text" name="conteudo" />
+	<input type="submit" value="Comentar" />
+</form>
+
+{% endblock %}
