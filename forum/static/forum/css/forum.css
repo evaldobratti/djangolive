@@ -1,0 +1,14 @@
+.post-header {
+	background-color: #e18002;
+}
+
+.body {
+	margin: auto;
+	width: 90%;
+}
+
+.post {
+	border-style: solid;
+	padding: 10px;
+}
+

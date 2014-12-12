@@ -2,14 +2,37 @@
 
 
 {% block content %}
-<h2> {{topico.titulo}} </h2>
-<h1> {{topico.descricao}} </h1>
-<h1> {{topico.conteudo}} </h1>
-<br />
+<div class="row post">
+  <div class="col-sm-12">
+    <div class="row post-header">
+      <h1>{{ topico.titulo }} </h1>
+      <p>{{topico.descricao}}</p>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-sm-2">
+        {{ topico.autor }}<br />
+        {{ topico.data_hora_criacao }}
+      </div>
+      <div class="col-xs-4 col-sm-10">
+        {{topico.conteudo}}
+      </div>
+    </div>
+  </div>
+</div>
 {% for post in topico.post_set.all %}
-<h1> {{post.conteudo}} </h1>
-<br />
-{% endfor %}
+<div class="row post">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-xs-8 col-sm-2">
+        {{ post.autor }}<br />
+        {{ post.data_hora_criacao }}
+      </div>
+      <div class="col-xs-4 col-sm-10">
+        {{post.conteudo}}
+      </div>
+    </div>
+  </div>
+</div>{% endfor %}
 
 <form action="{% url 'forum:comentar' topico.id %}" method="post">
 {% csrf_token %}
