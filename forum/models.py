@@ -19,7 +19,7 @@ class Topico(models.Model):
 	autor = models.ForeignKey(User)
 	data_hora_criacao = models.DateTimeField(auto_now_add=True)
 	votos = models.IntegerField(blank=True, default=0)
-	conteudo = models.CharField(max_length=2000)
+	conteudo = models.CharField(max_length=2000, blank=False)
 	labels = models.ManyToManyField(Label, blank=True)
 	titulo = models.CharField(max_length=100)
 	descricao = models.CharField(max_length=200, blank=True)

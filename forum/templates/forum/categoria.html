@@ -3,9 +3,7 @@
 
 {% block content %}
 
-{% if categoria %}
 <a href="{% url 'forum:novo_topico' categoria.id %}">Novo topico</a>
-{% endif %}
 
 {% for categoria in categorias %}
 

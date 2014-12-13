@@ -14,7 +14,7 @@
         {{ topico.data_hora_criacao }}
       </div>
       <div class="col-xs-4 col-sm-10">
-        {{topico.conteudo}}
+        {{topico.conteudo|linebreaks}}
       </div>
     </div>
   </div>
@@ -28,16 +28,18 @@
         {{ post.data_hora_criacao }}
       </div>
       <div class="col-xs-4 col-sm-10">
-        {{post.conteudo}}
+        {{post.conteudo|linebreaks}}
       </div>
     </div>
   </div>
 </div>{% endfor %}
 
+<div class="row post">
 <form action="{% url 'forum:comentar' topico.id %}" method="post">
 {% csrf_token %}
-    <input type="text" name="conteudo" />
-	<input type="submit" value="Comentar" />
+    <textarea name="conteudo" style="width: 500px; height: 200px"></textarea><br /> 
+	  <input type="submit" value="Comentar" />
 </form>
+</div>
 
 {% endblock %}
